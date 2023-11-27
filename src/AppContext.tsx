@@ -8,13 +8,14 @@ interface IAppContext {
 	books: IBook[];
 	setBooks: (books: IBook[]) => void;
 	cart: ICart;
+	handleAddBookToCart: (book: IBook) => void;
 }
 
 interface IAppProvider {
 	children: React.ReactNode;
 }
 
-const booksUrl = 'https://edwardtanguay.vercel.app/share/techBooks.json';
+const booksUrl = "https://edwardtanguay.vercel.app/share/techBooks.json";
 
 export const AppContext = createContext<IAppContext>({} as IAppContext);
 
@@ -31,9 +32,9 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 		})();
 	}, []);
 
-	(async () => {
-		
-	})();
+	const handleAddBookToCart = (book: IBook) => {
+		console.log(book);
+	};
 
 	return (
 		<AppContext.Provider
@@ -42,7 +43,8 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				setUserName,
 				books,
 				setBooks,
-				cart
+				cart,
+				handleAddBookToCart,
 			}}
 		>
 			{children}

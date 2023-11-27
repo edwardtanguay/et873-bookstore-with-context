@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AppContext } from "../AppContext";
 
 export const PageBooks = () => {
-	const { userName, books } = useContext(AppContext);
+	const { userName, books, handleAddBookToCart } = useContext(AppContext);
 	return (
 		<>
 			{userName && <p>Hallo, {userName}, please select your books!</p>}
@@ -14,7 +14,8 @@ export const PageBooks = () => {
 					return (
 						<img
 							key={book.id}
-							className="w-40 h-fit"
+							className="w-40 h-fit cursor-pointer"
+							onClick={() => handleAddBookToCart(book)}
 							src={`https://edwardtanguay.vercel.app/share/images/techBooks/${book.idCode}.jpg`}
 						/>
 					);

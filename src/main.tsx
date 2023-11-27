@@ -28,7 +28,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "checkout",
-				element: <PageCheckout />,
+				element: <PageCheckout />
 			},
 			{
 				path: "/",
