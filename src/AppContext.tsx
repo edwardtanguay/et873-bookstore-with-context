@@ -1,9 +1,17 @@
 import { createContext, useState } from "react";
 
-export const AppContext = createContext();
+interface IAppContext {
+	userName: string;
+}
 
-export const AppProvider = ({ children }) => {
-	const [userName] = useState("Hans");
+interface IAppProvider {
+	children: React.ReactNode;
+}
+
+export const AppContext = createContext<IAppContext>({} as IAppContext);
+
+export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
+	const [userName] = useState("Frederick");
 
 	return (
 		<AppContext.Provider
