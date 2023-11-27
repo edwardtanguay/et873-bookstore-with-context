@@ -6,11 +6,9 @@ export const PageWelcome = () => {
 
 	return (
 		<>
-			{userName ? (
-				<p>Welcome, {userName}!</p>
-			) : (
-				<p>Welcome to this page!</p>
-			)}
+			<p className={`${userName ? "flex" : "hidden"}`}>
+				Welcome, {userName}!
+			</p>
 			<div className="flex gap-3 items-center">
 				<p className="text-2xl">Please tell us your name:</p>
 				<input
