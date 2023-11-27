@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AppContext } from "../AppContext";
 
 export const PageWelcome = () => {
-	const { userName, setUserName } = useContext(AppContext);
+	const { userName, setUserName, books } = useContext(AppContext);
 
 	return (
 		<>
@@ -18,6 +18,9 @@ export const PageWelcome = () => {
 					type="text"
 				/>
 			</div>
+			<p>
+				We have {books.length} books available. 
+			</p>
 		</>
 	);
 };
