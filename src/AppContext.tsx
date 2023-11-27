@@ -22,7 +22,7 @@ export const AppContext = createContext<IAppContext>({} as IAppContext);
 export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	const [userName, setUserName] = useState("");
 	const [books, setBooks] = useState<IBook[]>([]);
-	const [cart] = useState<ICart>({items:[]} as ICart);
+	const [cart, setCart] = useState<ICart>({items:[]} as ICart);
 
 	useEffect(() => {
 		(async () => {
@@ -33,8 +33,9 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	}, []);
 
 	const handleAddBookToCart = (book: IBook) => {
-		cart.items.push(book);
-		console.log(cart);
+		const _cart = structuredClone(cart);
+		_cart.items.push(book);
+		setCart(_cart);	
 	};
 
 	return (
