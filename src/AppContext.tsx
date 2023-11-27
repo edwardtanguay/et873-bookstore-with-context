@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 
 interface IAppContext {
 	userName: string;
+	setUserName: (userName: string) => void;
 }
 
 interface IAppProvider {
@@ -11,12 +12,13 @@ interface IAppProvider {
 export const AppContext = createContext<IAppContext>({} as IAppContext);
 
 export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
-	const [userName] = useState("Frederick");
+	const [userName, setUserName] = useState("");
 
 	return (
 		<AppContext.Provider
 			value={{
 				userName,
+				setUserName
 			}}
 		>
 			{children}
