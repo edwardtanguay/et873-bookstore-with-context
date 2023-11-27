@@ -18,7 +18,7 @@ export const PageBooks = () => {
 								onClick={() => handleAddBookToCart(book)}
 								src={`https://edwardtanguay.vercel.app/share/images/techBooks/${book.idCode}.jpg`}
 							/>
-							<p className="text-center">Ordered: {cart.items.filter(m => m.idCode === book.idCode).length}</p>
+							<p className="text-center bg-slate-800 text-yellow-300 pb-1">Ordered: {cart.items.filter(m => m.idCode === book.idCode).length}</p>
 						</div>
 					);
 				})}
